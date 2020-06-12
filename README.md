@@ -31,9 +31,7 @@ With `-O3`, GCC compiles to_string to:
 
 # Compilation speed
 
-Running Clang with `-ftime-trace`, you can see this is super quick! <6ms and most of that time is spent including `<array>` (which could be removed but not worth it to me).
-
-The example file also includes `<iostream>` which takes 710ms.  More importantly, there are no large templates to instantiate or macros to exapnd that would grow in proportion to the number of things in the enum. 
+Running Clang with `-ftime-trace`, you can see this is super quick! <6ms and most of that time is spent including `<array>` (which could be removed but not worth it to me). The example file also includes `<iostream>` which takes 710ms for context.  More importantly than the quick speed in this one example, there are no large templates to instantiate or macros to exapnd that would grow in proportion to the number of things in the enum so you can safely make huge enums and not waste precious milliseconds of compilation time.
 
 ![This image shows that enum.h is super quick to compile!](/ftime-trace.png)
 
